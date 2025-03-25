@@ -1,0 +1,56 @@
+{
+  "name": "kuku-ui",
+  "version": "0.1.0",
+  "description": "基于ant-design-vue的业务组件库",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "build:lib": "vue-tsc --noEmit && vite build --config vite.lib.config.ts",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "vue3",
+    "ant-design-vue",
+    "component-library",
+    "ui-components"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "ant-design-vue": "^3.2.0",
+    "vue": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@vue/eslint-config-prettier": "^7.1.0",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "ant-design-vue": "^3.2.20",
+    "eslint": "^8.38.0",
+    "eslint-plugin-vue": "^9.11.0",
+    "less": "^4.1.3",
+    "prettier": "^2.8.7",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.1",
+    "vite-plugin-dts": "^2.3.0",
+    "vitepress": "^1.0.0-alpha.75",
+    "vue": "^3.2.47",
+    "vue-tsc": "^1.2.0"
+  }
+}

@@ -1,0 +1,26 @@
+/* 全局样式 */
+:root {
+  --vp-c-brand: #1890ff;
+  --vp-c-brand-light: #40a9ff;
+  --vp-c-brand-dark: #096dd9;
+  --vp-c-green: #52c41a;
+}
+
+/* 组件演示样式 */
+.button-demo {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* 代码块样式优化 */
+.vp-doc div[class*='language-'] {
+  margin: 0;
+}
+
+/* 确保代码块内容可以滚动 */
+.demo-code-content pre {
+  max-height: 400px;
+  overflow: auto;
+}
