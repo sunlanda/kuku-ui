@@ -1,6 +1,14 @@
 import { defineConfig } from 'vitepress'
+import { resolve } from 'path'
 
 export default defineConfig({
+  vite: {
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, '../../src')
+      }
+    }
+  },
   title: 'Kuku UI',
   description: '基于ant-design-vue的业务组件库',
   lang: 'zh-CN',

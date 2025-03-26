@@ -12,10 +12,10 @@ export default {
     
     // 注册Kuku UI组件，使用异步组件避免SSR问题
     app.component('KButton', defineAsyncComponent(() => 
-      import('../../../src/button/src/button.vue')
+      import('@/button')
     ))
     app.component('KTable', defineAsyncComponent(() => 
-      import('../../../src/table/src/table.vue')
+      import('@/table')
     ))
   }
 }

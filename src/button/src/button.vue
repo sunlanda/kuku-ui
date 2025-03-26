@@ -54,7 +54,7 @@ export default defineComponent({
     }
   },
   emits: ['click'],
-  setup(props, { emit }) {
+  setup(_, { emit }) {
     const handleClick = (e: MouseEvent) => {
       emit('click', e)
     }
