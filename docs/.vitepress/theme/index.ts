@@ -17,5 +17,8 @@ export default {
     app.component('KTable', defineAsyncComponent(() => 
       import('@/table')
     ))
+    app.component('KCard', defineAsyncComponent(() => 
+      import('@/card')
+    ))
   }
 }

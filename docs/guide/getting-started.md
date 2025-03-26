@@ -43,11 +43,15 @@ import { createApp } from 'vue'
 import { KButton, KTable } from 'kuku-ui'
 import 'kuku-ui/es/button/style.css'
 import 'kuku-ui/es/table/style.css'
+import 'kuku-ui/es/card/style.css'
+
 import App from './App.vue'
 
 const app = createApp(App)
 app.component('KButton', KButton)
 app.component('KTable', KTable)
+app.component('KCard', KCard)
+
 app.mount('#app')
 ```
 

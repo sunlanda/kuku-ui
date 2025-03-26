@@ -112,9 +112,6 @@
     Button as AButton,
   } from "ant-design-vue";
   import { SettingOutlined } from "@ant-design/icons-vue";
-  import "ant-design-vue/es/table/style/css";
-  import "ant-design-vue/es/modal/style/css";
-  import "ant-design-vue/es/button/style/css";
   import type {
     TableProps,
     TablePaginationConfig,

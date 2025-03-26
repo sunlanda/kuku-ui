@@ -19,7 +19,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '指南', link: '/guide/' },
       { text: '组件', link: '/components/' },
-      { text: 'GitHub', link: 'https://github.com/your-username/kuku-ui' }
+      { text: 'GitHub', link: 'https://github.com/sunlanda/kuku-ui' }
     ],
     sidebar: {
       '/guide/': [
@@ -37,17 +37,18 @@ export default defineConfig({
           text: '基础组件',
           items: [
             { text: 'Button 按钮', link: '/components/button' },
-            { text: 'Table 表格', link: '/components/table' }
+            { text: 'Table 表格', link: '/components/table' },
+            { text: 'Card 卡片', link: '/components/card' }
           ]
         }
       ]
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/your-username/kuku-ui' }
+      { icon: 'github', link: 'https://github.com/sunlanda/kuku-ui' }
     ],
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2023-present Your Name'
+      copyright: 'Copyright © 2024-2025 Kuku UI'
     }
   }
 })

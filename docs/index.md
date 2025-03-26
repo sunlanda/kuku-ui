@@ -16,7 +16,7 @@ hero:
       link: /components/
     - theme: alt
       text: GitHub
-      link: https://github.com/your-username/kuku-ui
+      link: https://github.com/sunlanda/kuku-ui
 
 features:
   - icon: 🚀

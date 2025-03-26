@@ -33,4 +33,4 @@ Kuku UI 适用于以下场景：
 
 ## 参与贡献
 
-如果你有兴趣参与贡献，欢迎提交 Pull Request 或者 Issue。在提交之前，请先阅读[贡献指南](https://github.com/your-username/kuku-ui/blob/main/CONTRIBUTING.md)。
+如果你有兴趣参与贡献，欢迎提交 Pull Request 或者 Issue。在提交之前，请先阅读[贡献指南](https://github.com/sunlanda/kuku-ui/blob/main/CONTRIBUTING.md)。

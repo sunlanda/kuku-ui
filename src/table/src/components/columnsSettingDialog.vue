@@ -25,8 +25,6 @@
 
 <script>
 import { Checkbox as ACheckbox, Button as AButton } from 'ant-design-vue'
-import 'ant-design-vue/es/checkbox/style/css'
-import 'ant-design-vue/es/button/style/css'
 
 export default {
   name: 'ColumnsSettingDialog',

@@ -16,7 +16,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import { Button as AButton } from 'ant-design-vue'
-import 'ant-design-vue/es/button/style/css'
 
 export default defineComponent({
   name: 'KButton',
