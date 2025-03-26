@@ -49,21 +49,32 @@ import KTable from './table'
 const columns = [
   {
     title: '姓名',
+    label: '姓名', // th表头
     dataIndex: 'name',
+    name: 'name',
+    type: 'link',
     key: 'name',
   },
   {
     title: '年龄',
+    label: '年龄', // th表头
     dataIndex: 'age',
+    name: 'age',
+    type: 'link',
     key: 'age',
   },
   {
     title: '地址',
+    label: '地址', // th表头
     dataIndex: 'address',
+    name: 'address',
     key: 'address',
   },
   {
     title: '操作',
+    label: '操作', // th表头
+    name: 'action',
+    type: 'link',
     key: 'action',
     slots: { customRender: 'action' },
   },

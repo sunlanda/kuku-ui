@@ -1,7 +1,7 @@
 <template>
   <div class="columns-setting-dialog">
     <div class="dialog-header">
-      <h3>{{ $t('列设置') }}</h3>
+      <h3>{{ '列设置' }}</h3>
     </div>
     <div class="dialog-content">
       <div class="columns-list">
@@ -11,14 +11,14 @@
           class="column-item"
         >
           <a-checkbox v-model:checked="item.checked" @change="handleCheckChange">
-            {{ item.label }}
+            {{ item.label || item.title }}
           </a-checkbox>
         </div>
       </div>
     </div>
     <div class="dialog-footer">
-      <a-button @click="handleCancel">{{ $t('取消') }}</a-button>
-      <a-button type="primary" @click="handleConfirm">{{ $t('确定') }}</a-button>
+      <a-button @click="handleCancel">{{ '取消' }}</a-button>
+      <a-button type="primary" @click="handleConfirm">{{ '确定' }}</a-button>
     </div>
   </div>
 </template>
