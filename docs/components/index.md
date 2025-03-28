@@ -8,7 +8,8 @@ Kuku UI 提供了一系列基于 ant-design-vue 封装的业务组件，帮助�
 
 - [Button 按钮](/components/button) - 基于 ant-design-vue 的 Button 组件进行二次封装
 - [Table 表格](/components/table) - 基于 ant-design-vue 的 Table 组件进行二次封装
-- [Card 卡片](/components/card) - 基于 ant-design-vue 的 card 组件进行二次封装
+- [Card 卡片](/components/card) - 基于 ant-design-vue 的 Card 组件进行二次封装
+- [Select 选择器](/components/select) - 基于 ant-design-vue 的 Select 组件进行二次封装
 
 ## 使用方式
 
@@ -29,16 +30,18 @@ app.mount('#app')
 
 ```ts
 import { createApp } from 'vue'
-import { KButton, KTable,KCard } from 'kuku-ui'
+import { KButton, KTable, KCard, KSelect } from 'kuku-ui'
 import 'kuku-ui/es/button/style.css'
 import 'kuku-ui/es/table/style.css'
 import 'kuku-ui/es/card/style.css'
+import 'kuku-ui/es/select/style.css'
 import App from './App.vue'
 
 const app = createApp(App)
 app.component('KButton', KButton)
 app.component('KTable', KTable)
 app.component('KCard', KCard)
+app.component('KSelect', KSelect)
 app.mount('#app')
 ```
 

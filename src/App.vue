@@ -58,6 +58,32 @@
           </k-card>
         </div>
       </section>
+      
+      <section class="component-section">
+        <h2>Select 选择器</h2>
+        <div class="component-demo">
+          <k-select 
+            v-model:value="selectedValue" 
+            :options="selectOptions" 
+            placeholder="请选择一个选项"
+            style="width: 200px"
+          />
+          <k-select 
+            v-model:value="selectedMultipleValue" 
+            :options="selectOptions" 
+            mode="multiple"
+            placeholder="请选择多个选项"
+            style="width: 300px"
+          />
+          <k-select 
+            v-model:value="selectedLoadMoreValue" 
+            :options="initialOptions" 
+            :load-more="loadMoreOptions"
+            placeholder="滚动加载更多"
+            style="width: 200px"
+          />
+        </div>
+      </section>
     </div>
   </a-config-provider>
 </template>
@@ -69,6 +95,7 @@ import { ref, reactive, computed } from 'vue'
 import KButton from './button'
 import KTable from './table'
 import KCard from './card'
+import KSelect from './select'
 
 const { defaultAlgorithm, darkAlgorithm } = theme
 
@@ -127,6 +154,47 @@ const dataSource = [
 const baseToken = {
   colorPrimary: '#1890ff',
   borderRadius: 4,
+}
+
+// Select组件相关数据
+const selectedValue = ref<string | undefined>(undefined)
+const selectedMultipleValue = ref<string[]>([])
+const selectedLoadMoreValue = ref<string | undefined>(undefined)
+
+const selectOptions = [
+  { value: 'option1', label: '选项1' },
+  { value: 'option2', label: '选项2' },
+  { value: 'option3', label: '选项3' },
+  { value: 'option4', label: '选项4' },
+  { value: 'option5', label: '选项5' },
+]
+
+const _page = 1
+const initialOptions = Array.from({ length: 12 }, (_, i) => ({
+    value: `page${_page}-${i + 1}`,
+    label: `第${_page}页-选项${i + 1}`
+  }))
+// [
+//   { value: 'page1-1', label: '第1页-选项1' },
+//   { value: 'page1-2', label: '第1页-选项2' },
+//   { value: 'page1-3', label: '第1页-选项3' },
+// ]
+
+// 模拟加载更多数据的函数
+const loadMoreOptions = async (page: number) => {
+  // 模拟网络请求延迟
+  await new Promise(resolve => setTimeout(resolve, 1000))
+  
+  // 模拟数据，第4页后返回空数组表示没有更多数据
+  if (page > 3) {
+    return []
+  }
+  
+  // 返回模拟的下一页数据
+  return Array.from({ length: 3 }, (_, i) => ({
+    value: `page${page}-${i + 1}`,
+    label: `第${page}页-选项${i + 1}`
+  }))
 }
 
 // 计算当前主题

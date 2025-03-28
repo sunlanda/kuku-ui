@@ -1,7 +1,12 @@
+/*
+ * @Date: 2025-03-25 13:25:12
+ * @LastEditTime: 2025-03-28 16:03:21
+ * @FilePath: /kuku-ui/docs/.vitepress/theme/index.ts
+ */
 import DefaultTheme from 'vitepress/theme'
 import Demo from '../components/Demo.vue'
 import { defineAsyncComponent } from 'vue'
-import 'ant-design-vue/es/button/style/css'
+// import 'ant-design-vue/es/button/style/css'
 import './custom.css'
 
 export default {
@@ -19,6 +24,9 @@ export default {
     ))
     app.component('KCard', defineAsyncComponent(() => 
       import('@/card')
+    ))
+    app.component('KSelect', defineAsyncComponent(() => 
+      import('@/Select')
     ))
   }
 }

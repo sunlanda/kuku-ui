@@ -38,7 +38,8 @@ export default defineConfig({
           items: [
             { text: 'Button 按钮', link: '/components/button' },
             { text: 'Table 表格', link: '/components/table' },
-            { text: 'Card 卡片', link: '/components/card' }
+            { text: 'Card 卡片', link: '/components/card' },
+            { text: 'Select 选择器', link: '/components/select' }
           ]
         }
       ]

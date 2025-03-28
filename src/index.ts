@@ -4,12 +4,14 @@ import type { App } from 'vue'
 import KButton from './button'
 import KTable from './table'
 import KCard from './card'
+import KSelect from './select'
 
 // 组件列表
 const components = [
   KButton,
   KTable,
-  KCard
+  KCard,
+  KSelect
 ]
 
 // 定义 install 方法
@@ -27,6 +29,7 @@ export {
   KButton,
   KTable,
   KCard,
+  KSelect,
   install
 }
 
