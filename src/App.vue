@@ -11,7 +11,7 @@
       </div>
       <h1>Kuku UI 组件示例</h1>
       
-      <section class="component-section">
+      <section class="component-section dn">
         <h2>Button 按钮</h2>
         <div class="component-demo">
           <k-button>默认按钮</k-button>
@@ -84,6 +84,33 @@
           />
         </div>
       </section>
+
+      <section class="component-section">
+        <h2>Charts 图表</h2>
+        <div class="component-demo">
+          <k-charts
+            type="line"
+            :option="chartOption"
+            :width="600"
+            :height="400"
+            :loading="isLoading"
+            @chartClick="handleChartClick"
+            >
+          </k-charts>
+          <k-charts
+            type="line"
+            :option="pieChartOption"
+            :width="600"
+            :height="400"
+            :loading="isLoading"
+            @chartClick="handleChartClick"
+            >
+          </k-charts>
+        </div>
+      </section>
+
+   
+
     </div>
   </a-config-provider>
 </template>
@@ -92,10 +119,7 @@
 import { ConfigProvider, Switch as ASwitch } from 'ant-design-vue'
 import { theme } from 'ant-design-vue'
 import { ref, reactive, computed } from 'vue'
-import KButton from './button'
-import KTable from './table'
-import KCard from './card'
-import KSelect from './select'
+import {PIE,LINE} from "../config/mock"
 
 const { defaultAlgorithm, darkAlgorithm } = theme
 
@@ -207,6 +231,15 @@ const currentTheme = computed(() => ({
 const toggleTheme = (checked: boolean) => {
   isDarkMode.value = checked
 }
+// loading
+const isLoading = true
+// line option
+const chartOption = LINE
+// pie option
+const pieChartOption = PIE
+const handleChartClick = (e)=>{
+  console.log("🚀 ~ e:", e)
+}
 </script>
 
 <style scoped>
@@ -234,5 +267,8 @@ const toggleTheme = (checked: boolean) => {
 
 .card-demo {
   margin-bottom: 16px;
+}
+.dn{
+  display: none;
 }
 </style>

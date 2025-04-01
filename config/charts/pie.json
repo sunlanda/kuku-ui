@@ -1,0 +1,57 @@
+{
+    "tooltip": {
+        "trigger": "item"
+    },
+    "legend": {
+        "top": "5%",
+        "left": "center"
+    },
+    "series": [
+        {
+            "name": "项目",
+            "type": "pie",
+            "radius": [
+                "40%",
+                "70%"
+            ],
+            "avoidLabelOverlap": false,
+            "itemStyle": {
+                "borderRadius": 10,
+                "borderColor": "#fff",
+                "borderWidth": 2
+            },
+            "label": {
+                "show": false,
+                "position": "center"
+            },
+            "emphasis": {
+                "label": {
+                    "show": true,
+                    "fontSize": 40,
+                    "fontWeight": "bold"
+                }
+            },
+            "labelLine": {
+                "show": false
+            },
+            "data": [
+                {
+                    "value": 1048,
+                    "name": "项目e"
+                },
+                {
+                    "value": 735,
+                    "name": "项目t"
+                },
+                {
+                    "value": 580,
+                    "name": "项目l"
+                },
+                {
+                    "value": 300,
+                    "name": "项目s"
+                }
+            ]
+        }
+    ]
+}

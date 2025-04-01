@@ -1,3 +1,8 @@
+/*
+ * @Date: 2025-03-28 19:34:15
+ * @LastEditTime: 2025-04-01 21:37:19
+ * @FilePath: /kuku-ui/src/index.ts
+ */
 import type { App } from 'vue'
 
 // 导入组件
@@ -5,13 +10,15 @@ import KButton from './button'
 import KTable from './table'
 import KCard from './card'
 import KSelect from './select'
+import KCharts from './charts'
 
 // 组件列表
 const components = [
   KButton,
   KTable,
   KCard,
-  KSelect
+  KSelect,
+  KCharts,
 ]
 
 // 定义 install 方法
@@ -30,6 +37,7 @@ export {
   KTable,
   KCard,
   KSelect,
+  KCharts,
   install
 }
 
