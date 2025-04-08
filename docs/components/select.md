@@ -8,7 +8,7 @@
 
 <Demo title="基础用法">
   <template #preview>
-    <k-select v-model:value="value1" :options="options1" placeholder="请选择" style="width: 200px" />
+    <k-select v-model:value="value" :options="options" placeholder="请选择" style="width: 200px" />
   </template>
   <template #code>
 
@@ -28,19 +28,68 @@ const options = [
 ]
 </script>
 ```
-</template>
-
-</Demo>
-
 <script setup>
 import { ref } from 'vue'
 
-const value1 = ref(undefined)
-const options1 = [
+// 单选
+const value = ref(undefined)
+const options = [
   { value: 'option1', label: '选项1' },
   { value: 'option2', label: '选项2' },
   { value: 'option3', label: '选项3' },
 ]
+// 多选
+const value1 = ref([])
+const options1 = [
+  { value: 'option1', label: '多选选项1' },
+  { value: 'option2', label: '多选选项2' },
+  { value: 'option3', label: '多选选项3' },
+]
+// 可搜索
+const value2 = ref(undefined)
+const options2 = [
+  { value: 'option1', label: '选项1' },
+  { value: 'option2', label: '选项2' },
+  { value: 'option3', label: '选项3' },
+  { value: 'option4', label: '选项4' },
+  { value: 'option5', label: '选项5' },
+]
+// scroll
+const value4 = ref(undefined)
+const options4 = ref(Array.from({ length: 10 }, (_, i) => ({
+    value: `page${i}`,
+    label: `选项${i}`,
+  })))
+
+// 加载更多数据的函数
+const loadMoreData = async (page) => {
+  // 模拟接口请求
+  const res = await fetchMoreOptions(page)
+  if (res.length === 0) {
+    // 返回空数组表示没有更多数据
+    return []
+  }
+  return res
+}
+
+// 模拟接口请求函数
+const fetchMoreOptions = async (page) => {
+  // 这里替换为实际的接口请求
+  await new Promise(resolve => setTimeout(resolve, 1000))
+  
+  // 模拟第3页后没有更多数据
+  if (page > 3) return []
+  
+  return Array.from({ length: 10 }, (_, i) => ({
+    value: `page${page}-${i}`,
+    label: `第${page}页-选项${i}`,
+  }))
+}
+</script>
+</template>
+
+</Demo>
+
 
 ## 多选模式
 
@@ -49,7 +98,7 @@ const options1 = [
 <Demo title="多选模式">
   <template #preview>
     <k-select 
-      v-model:value="value2" 
+      v-model:value="value1" 
       :options="options1" 
       mode="multiple" 
       placeholder="请选择多个选项" 
@@ -61,8 +110,8 @@ const options1 = [
 ```vue
 <template>
   <k-select 
-    v-model:value="value" 
-    :options="options" 
+    v-model:value="value1" 
+    :options="options1" 
     mode="multiple" 
     placeholder="请选择多个选项" 
   />
@@ -71,18 +120,20 @@ const options1 = [
 <script setup>
 import { ref } from 'vue'
 
-const value = ref([])
-const options = [
+const value1 = ref([])
+const options1 = [
   { value: 'option1', label: '选项1' },
   { value: 'option2', label: '选项2' },
   { value: 'option3', label: '选项3' },
 ]
 </script>
 ```
+
 </template>
+
 </Demo>
 
-const value2 = ref([])
+
 
 ## 可搜索模式
 
@@ -91,9 +142,10 @@ const value2 = ref([])
 <Demo title="可搜索模式">
   <template #preview>
     <k-select 
-      v-model:value="value3" 
-      :options="options3" 
+      v-model:value="value2" 
+      :options="options2" 
       show-search
+      allow-clear
       placeholder="请输入搜索" 
       style="width: 200px"
     />
@@ -103,8 +155,8 @@ const value2 = ref([])
 ```vue
 <template>
   <k-select 
-    v-model:value="value" 
-    :options="options" 
+    v-model:value="value2" 
+    :options="options2" 
     show-search
     placeholder="请输入搜索" 
     style="width: 200px"
@@ -125,135 +177,8 @@ const options = [
 </script>
 ```
   </template>
-</Demo>
+</Demo> 
 
-
-const value3 = ref(undefined)
-const options3 = [
-  { value: 'option1', label: '选项1' },
-  { value: 'option2', label: '选项2' },
-  { value: 'option3', label: '选项3' },
-  { value: 'option4', label: '选项4' },
-  { value: 'option5', label: '选项5' },
-]
-
-## 可清除选择
-
-通过设置 `allow-clear` 属性为 `true`，可以启用清除功能，方便用户快速清除已选内容。
-
-<Demo title="可清除选择">
-  <template #preview>
-    <k-select 
-      v-model:value="value4" 
-      :options="options1" 
-      allow-clear
-      placeholder="可清除选择" 
-      style="width: 200px"
-    />
-  </template>
-  <template #code>
-
-```vue
-<template>
-  <k-select 
-    v-model:value="value" 
-    :options="options" 
-    allow-clear
-    placeholder="可清除选择" 
-    style="width: 200px"
-  />
-</template>
-
-<script setup>
-import { ref } from 'vue'
-
-const value = ref('option1')
-const options = [
-  { value: 'option1', label: '选项1' },
-  { value: 'option2', label: '选项2' },
-  { value: 'option3', label: '选项3' },
-]
-</script>
-```
-
-  </template>
-</Demo>
-
-const value4 = ref('option1')
-
-## 不同尺寸
-
-通过设置 `size` 属性可以使用不同尺寸的选择器，有 `large`、`middle`、`small` 三种尺寸可选。
-
-<Demo title="不同尺寸">
-  <template #preview>
-    <div style="display: flex; gap: 16px; align-items: flex-end;">
-      <k-select 
-        v-model:value="value5" 
-        :options="options1" 
-        size="large"
-        placeholder="大尺寸" 
-        style="width: 200px"
-      />
-      <k-select 
-        v-model:value="value5" 
-        :options="options1" 
-        placeholder="默认尺寸" 
-        style="width: 200px"
-      />
-      <k-select 
-        v-model:value="value5" 
-        :options="options1" 
-        size="small"
-        placeholder="小尺寸" 
-        style="width: 200px"
-      />
-    </div>
-  </template>
-  <template #code>
-
-```vue
-<template>
-  <div style="display: flex; gap: 16px; align-items: flex-end;">
-    <k-select 
-      v-model:value="value" 
-      :options="options" 
-      size="large"
-      placeholder="大尺寸" 
-      style="width: 200px"
-    />
-    <k-select 
-      v-model:value="value" 
-      :options="options" 
-      placeholder="默认尺寸" 
-      style="width: 200px"
-    />
-    <k-select 
-      v-model:value="value" 
-      :options="options" 
-      size="small"
-      placeholder="小尺寸" 
-      style="width: 200px"
-    />
-  </div>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-
-const value = ref(undefined)
-const options = [
-  { value: 'option1', label: '选项1' },
-  { value: 'option2', label: '选项2' },
-  { value: 'option3', label: '选项3' },
-]
-</script>
-```
-
-  </template>
-</Demo>
-
-const value5 = ref(undefined)
 
 ## 滚动加载更多
 
@@ -262,8 +187,8 @@ const value5 = ref(undefined)
 <Demo title="滚动加载更多">
   <template #preview>
     <k-select 
-      v-model:value="value6" 
-      :options="options6" 
+      v-model:value="value4" 
+      :options="options4" 
       :load-more="loadMoreData"
       placeholder="滚动加载更多" 
       style="width: 250px"
@@ -274,8 +199,8 @@ const value5 = ref(undefined)
 ```vue
 <template>
   <k-select 
-    v-model:value="value" 
-    :options="options" 
+    v-model:value="value4" 
+    :options="options4" 
     :load-more="loadMoreData"
     placeholder="滚动加载更多" 
   />
@@ -294,6 +219,7 @@ const options = ref([
 const loadMoreData = async (page) => {
   // 模拟接口请求
   const res = await fetchMoreOptions(page)
+    console.log("🚀 ~ loadMoreData ~ res:", res)
   if (res.length === 0) {
     // 返回空数组表示没有更多数据
     return []
@@ -309,7 +235,7 @@ const fetchMoreOptions = async (page) => {
   // 模拟第3页后没有更多数据
   if (page > 3) return []
   
-  return Array.from({ length: 5 }, (_, i) => ({
+  return Array.from({ length: 10 }, (_, i) => ({
     value: `page${page}-${i}`,
     label: `第${page}页-选项${i}`,
   }))
@@ -320,36 +246,6 @@ const fetchMoreOptions = async (page) => {
   </template>
 </Demo>
 
-const value6 = ref(undefined)
-const options6 = ref([
-  { value: 'initial1', label: '初始选项1' },
-  { value: 'initial2', label: '初始选项2' },
-])
-
-// 加载更多数据的函数
-const loadMoreData = async (page) => {
-  // 模拟接口请求
-  const res = await fetchMoreOptions(page)
-  if (res.length === 0) {
-    // 返回空数组表示没有更多数据
-    return []
-  }
-  return res
-}
-
-// 模拟接口请求函数
-const fetchMoreOptions = async (page) => {
-  // 这里替换为实际的接口请求
-  await new Promise(resolve => setTimeout(resolve, 1000))
-  
-  // 模拟第3页后没有更多数据
-  if (page > 3) return []
-  
-  return Array.from({ length: 5 }, (_, i) => ({
-    value: `page${page}-${i}`,
-    label: `第${page}页-选项${i}`,
-  }))
-}
 
 ## API
 
