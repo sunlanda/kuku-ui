@@ -1,5 +1,10 @@
+/*
+ * @Date: 2025-03-28 19:33:55
+ * @LastEditTime: 2025-04-08 14:42:46
+ * @FilePath: /kuku-ui/vite.lib.config.ts
+ */
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue2'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { resolve } from 'path'
 import dts from 'vite-plugin-dts'
@@ -22,7 +27,7 @@ export default defineConfig({
   build: {
     outDir: 'es',
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: resolve(__dirname, 'src/index.js'),
       name: 'KukuUI',
       fileName: (format) => `index.${format}.js`
     },

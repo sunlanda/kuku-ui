@@ -117,11 +117,11 @@
 
 <script setup lang="ts">
 import { ConfigProvider, Switch as ASwitch } from 'ant-design-vue'
-import { theme } from 'ant-design-vue'
+// import { theme } from 'ant-design-vue'
 import { ref, reactive, computed } from 'vue'
 import {PIE,LINE} from "../config/mock"
 
-const { defaultAlgorithm, darkAlgorithm } = theme
+// const { defaultAlgorithm, darkAlgorithm } = theme
 
 const isDarkMode = ref(false)
 
@@ -222,7 +222,8 @@ const loadMoreOptions = async (page: number) => {
 
 // 计算当前主题
 const currentTheme = computed(() => ({
-  algorithm: isDarkMode.value ? darkAlgorithm : defaultAlgorithm,
+  // algorithm: isDarkMode.value ? darkAlgorithm : defaultAlgorithm,
+  algorithm: isDarkMode.value ? '':'',
   token: baseToken,
 }))
 

@@ -1,6 +1,6 @@
 <!--
  * @Date: 2025-03-26 20:13:53
- * @LastEditTime: 2025-03-26 20:32:06
+ * @LastEditTime: 2025-04-08 14:37:44
  * @FilePath: /kuku-ui/src/card/src/card.vue
 -->
 <template>
@@ -14,15 +14,15 @@
             @click="toggleFullscreen"
           >
             <template #icon>
-              <compress-outlined v-if="isFullscreen" />
-              <expand-outlined v-else />
+              <!-- <compress-outlined v-if="isFullscreen" />
+              <expand-outlined v-else /> -->
             </template>
           </a-button>
           <slot name="extra"></slot>
         </div>
       </template>
       <!-- 转发所有插槽 -->
-      <template v-for="(_, name) in $slots" :key="name" v-slot:[name]="slotData">
+      <template v-for="(_, name) in $slots"  v-slot:[name]="slotData">
         <slot :name="name" v-bind="slotData || {}"></slot>
       </template>
     </a-card>
@@ -32,15 +32,15 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { Card as ACard, Button as AButton } from 'ant-design-vue'
-import { ExpandOutlined, CompressOutlined } from '@ant-design/icons-vue'
+// import { ExpandOutlined, CompressOutlined } from '@ant-design/icons-vue'
 
 export default defineComponent({
   name: 'KCard',
   components: {
     ACard,
     AButton,
-    ExpandOutlined,
-    CompressOutlined
+    // ExpandOutlined,
+    // CompressOutlined
   },
   inheritAttrs: false,
   setup() {

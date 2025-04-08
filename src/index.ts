@@ -1,6 +1,6 @@
 /*
  * @Date: 2025-03-28 19:34:15
- * @LastEditTime: 2025-04-01 21:37:19
+ * @LastEditTime: 2025-04-08 14:44:25
  * @FilePath: /kuku-ui/src/index.ts
  */
 import type { App } from 'vue'
@@ -11,7 +11,7 @@ import KTable from './table'
 import KCard from './card'
 import KSelect from './select'
 import KCharts from './charts'
-import KForm from './form'
+// import KForm from './form'
 
 // 组件列表
 const components = [
@@ -20,7 +20,7 @@ const components = [
   KCard,
   KSelect,
   KCharts,
-  KForm,
+  // KForm,
 ]
 
 // 定义 install 方法
@@ -40,7 +40,7 @@ export {
   KCard,
   KSelect,
   KCharts,
-  KForm,
+  // KForm,
   install
 }
 

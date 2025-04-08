@@ -6,7 +6,9 @@
         <div class="k-table-actions">
           <slot name="actions"></slot>
           <a-button v-if="enableColumnsSetting" @click="openColumnsSetting">
-            <template #icon><setting-outlined /></template>
+            <template #icon>
+              <!-- <setting-outlined /> -->
+            </template>
             {{ "列设置" }}
           </a-button>
         </div>
@@ -75,7 +77,7 @@
         </template>
       </template>
 
-      <template v-for="slot in Object.keys($slots)" #[slot]="data" :key="slot">
+      <template v-for="slot in Object.keys($slots)" #[slot]="data" >
         <slot :name="slot" v-bind="data"></slot>
       </template>
     </a-table>
@@ -111,7 +113,7 @@
     Modal as AModal,
     Button as AButton,
   } from "ant-design-vue";
-  import { SettingOutlined } from "@ant-design/icons-vue";
+  // import { SettingOutlined } from "@ant-design/icons-vue";
   import type {
     TableProps,
     TablePaginationConfig,
@@ -126,7 +128,7 @@
       ATable,
       AModal,
       AButton,
-      SettingOutlined,
+      // SettingOutlined,
       ColumnsSettingDialog,
     },
     props: {
