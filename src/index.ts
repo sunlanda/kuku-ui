@@ -11,6 +11,7 @@ import KTable from './table'
 import KCard from './card'
 import KSelect from './select'
 import KCharts from './charts'
+import KForm from './form'
 
 // 组件列表
 const components = [
@@ -19,6 +20,7 @@ const components = [
   KCard,
   KSelect,
   KCharts,
+  KForm,
 ]
 
 // 定义 install 方法
@@ -38,6 +40,7 @@ export {
   KCard,
   KSelect,
   KCharts,
+  KForm,
   install
 }
 

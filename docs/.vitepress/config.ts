@@ -1,3 +1,8 @@
+/*
+ * @Date: 2025-03-28 19:34:15
+ * @LastEditTime: 2025-04-08 10:57:50
+ * @FilePath: /kuku-ui/docs/.vitepress/config.ts
+ */
 import { defineConfig } from 'vitepress'
 import { resolve } from 'path'
 
@@ -39,7 +44,8 @@ export default defineConfig({
             { text: 'Button 按钮', link: '/components/button' },
             { text: 'Table 表格', link: '/components/table' },
             { text: 'Card 卡片', link: '/components/card' },
-            { text: 'Select 选择器', link: '/components/select' }
+            { text: 'Select 选择器', link: '/components/select' },
+            // { text: 'Form 表格', link: '/components/form' }
           ]
         }
       ]
