@@ -100,6 +100,17 @@ const toggleLoading = () => {
 }
 </script>
 ```
+<script setup>
+import { ref } from 'vue'
+
+const loading = ref(false)
+const toggleLoading = () => {
+  loading.value = !loading.value
+  setTimeout(() => {
+    loading.value = false
+  }, 2000)
+}
+</script>
 
   </template>
 </Demo>
