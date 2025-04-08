@@ -1,26 +1,22 @@
 <template>
-  <div class="columns-setting-dialog">
-    <div class="dialog-header">
-      <h3>{{ '列设置' }}</h3>
-    </div>
-    <div class="dialog-content">
-      <div class="columns-list">
-        <div
-          v-for="(item, index) in columnsList"
-          :key="index"
-          class="column-item"
-        >
-          <a-checkbox v-model:checked="item.checked" @change="handleCheckChange">
-            {{ item.label || item.title }}
-          </a-checkbox>
+  <a-modal v-model:open="localVisible" v-model:visible="localVisible" :title="'列设置'" @ok="handleColumnsSettingConfirm"
+    @cancel="handleCancel">
+    <div class="columns-setting-dialog">
+      <div class="dialog-content">
+        <div class="columns-list">
+          <div v-for="(item, index) in columnsList" :key="index" class="column-item">
+            <a-checkbox v-model:checked="item.checked" @change="handleCheckChange">
+              {{ item.label || item.title }}
+            </a-checkbox>
+          </div>
         </div>
       </div>
+      <!-- <div class="dialog-footer">
+        <a-button @click="handleCancel">{{ '取消' }}</a-button>
+        <a-button type="primary" @click="handleConfirm">{{ '确定' }}</a-button>
+      </div> -->
     </div>
-    <div class="dialog-footer">
-      <a-button @click="handleCancel">{{ '取消' }}</a-button>
-      <a-button type="primary" @click="handleConfirm">{{ '确定' }}</a-button>
-    </div>
-  </div>
+  </a-modal>
 </template>
 
 <script>
@@ -33,6 +29,10 @@ export default {
     AButton
   },
   props: {
+    visible: {
+      type: Boolean,
+      default: false
+    },
     allColumns: {
       type: Array,
       default: () => []
@@ -40,18 +40,35 @@ export default {
   },
   data() {
     return {
-      columnsList: []
+      columnsList: [],
+      localVisible: false
+    }
+  },
+  watch: {
+    visible: {
+      immediate: true,
+      handler(val) {
+        console.log("🚀 ~ handler ~ val:", val)
+        this.localVisible = val;
+      }
+    },
+    localVisible(val) {
+      if (val !== this.visible) {
+        this.$emit('update:visible', val);
+      }
     }
   },
   created() {
     // 深拷贝列配置，避免直接修改props
     this.columnsList = JSON.parse(JSON.stringify(this.allColumns))
+    console.log("🚀 ~ created ~ this.visible:", this.visible)
   },
   methods: {
     handleCheckChange() {
       // 列选中状态变化时的处理
     },
     handleCancel() {
+      this.localVisible = false;
       this.$emit('close')
     },
     handleConfirm() {

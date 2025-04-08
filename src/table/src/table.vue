@@ -93,7 +93,7 @@
         @success="handleColumnsSettingSuccess"
         @close="columnsSettingVisible = false"
       />
-    </a-modal>
+    </a-modal> 
   </div>
 </template>
 
@@ -334,10 +334,12 @@
       // 打开列设置对话框
       const openColumnsSetting = () => {
         columnsSettingVisible.value = true;
+        console.log("🚀 ~ openColumnsSetting ~ columnsSettingVisible:", columnsSettingVisible.value)
       };
 
       // 列设置确认
       const handleColumnsSettingConfirm = () => {
+        console.log("🚀 ~ handleColumnsSettingConfirm ~ handleColumnsSettingConfirm:")
         columnsSettingDialog.value?.handleConfirm();
       };
 

@@ -194,7 +194,7 @@ const selectOptions = [
 ]
 
 const _page = 1
-const initialOptions = Array.from({ length: 12 }, (_, i) => ({
+const initialOptions = Array.from({ length: 10 }, (_, i) => ({
     value: `page${_page}-${i + 1}`,
     label: `第${_page}页-选项${i + 1}`
   }))
@@ -208,14 +208,13 @@ const initialOptions = Array.from({ length: 12 }, (_, i) => ({
 const loadMoreOptions = async (page: number) => {
   // 模拟网络请求延迟
   await new Promise(resolve => setTimeout(resolve, 1000))
-  
   // 模拟数据，第4页后返回空数组表示没有更多数据
   if (page > 3) {
     return []
   }
   
   // 返回模拟的下一页数据
-  return Array.from({ length: 3 }, (_, i) => ({
+  return Array.from({ length: 10 }, (_, i) => ({
     value: `page${page}-${i + 1}`,
     label: `第${page}页-选项${i + 1}`
   }))
