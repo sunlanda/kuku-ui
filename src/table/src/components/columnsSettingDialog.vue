@@ -1,5 +1,5 @@
 <template>
-  <a-modal v-model:open="localVisible" v-model:visible="localVisible" :title="'列设置'" @ok="handleColumnsSettingConfirm"
+  <a-modal v-model:open="localVisible" v-model:visible="localVisible" :title="'列设置'" @ok="handleConfirm"
     @cancel="handleCancel">
     <div class="columns-setting-dialog">
       <div class="dialog-content">
@@ -19,7 +19,7 @@
   </a-modal>
 </template>
 
-<script>
+<script lang="ts">
 import { Checkbox as ACheckbox, Button as AButton } from 'ant-design-vue'
 
 export default {
@@ -40,7 +40,7 @@ export default {
   },
   data() {
     return {
-      columnsList: [],
+      columnsList: [] as Array<{checked: boolean, label?: string, title?: string}>,
       localVisible: false
     }
   },
@@ -48,7 +48,7 @@ export default {
     visible: {
       immediate: true,
       handler(val) {
-        console.log("🚀 ~ handler ~ val:", val)
+        console.log("🚀 ~ handler ~ val:", val, this.columnsList)
         this.localVisible = val;
       }
     },
@@ -61,7 +61,7 @@ export default {
   created() {
     // 深拷贝列配置，避免直接修改props
     this.columnsList = JSON.parse(JSON.stringify(this.allColumns))
-    console.log("🚀 ~ created ~ this.visible:", this.visible)
+    console.log("🚀 ~ created ~ this.visible:", this.visible,this.columnsList)
   },
   methods: {
     handleCheckChange() {

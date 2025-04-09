@@ -27,7 +27,7 @@
   import { Spin as ASpin } from 'ant-design-vue'
   import * as echarts from "echarts";
   import type { EChartsType } from "echarts";
-  import { ChartType, ChartsProps } from "../types";
+  import { ChartType } from "./types";
 
   export default defineComponent({
     name: "KCharts",

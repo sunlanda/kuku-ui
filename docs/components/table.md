@@ -8,10 +8,16 @@
 
 <Demo title="基础用法">
   <template #preview>
-    <k-table :columns="columns" :data-source="dataSource" />
+     <k-table :columns="columns" :data-source="dataSource" title="用户列表" show-header > <template #actions> 
+        <k-button type="primary">新增</k-button> 
+        <k-button>导出</k-button> 
+      </template> 
+     </k-table>
   </template>
   <template #code>
 
+  
+
 ```vue
 <template>
   <k-table :columns="columns" :data-source="dataSource" />
@@ -36,6 +42,16 @@
       dataIndex: "address",
       key: "address",
     },
+    {
+      title: "掌握技术",
+      dataIndex: "skill",
+      key: "skill",
+    },
+    {
+      title: "兴趣爱好",
+      dataIndex: "favorite",
+      key: "favorite",
+    },
   ];
 
   const dataSource = [
@@ -44,80 +60,96 @@
       name: "张三",
       age: 32,
       address: "北京市朝阳区",
+      skill: "javascript,node.js,python,java,html",
+      favorite: "running,reading,video game",
     },
     {
       key: "2",
       name: "李四",
       age: 42,
       address: "上海市浦东新区",
+      skill: "javascript,node.js,python,java",
+      favorite: "running,reading,video game",
     },
   ];
 </script>
-```
+``` 
+
+<script setup>
+import { ref } from 'vue'
+
+const columns = [
+  {
+    title: '姓名',
+    label: '姓名', // th表头
+    dataIndex: 'name',
+    name: 'name',
+    type: 'link',
+    key: 'name',
+  },
+  {
+    title: '年龄',
+    label: '年龄', // th表头
+    dataIndex: 'age',
+    name: 'age',
+    type: 'link',
+    key: 'age',
+  },
+  {
+    title: '地址',
+    label: '地址', // th表头
+    dataIndex: 'address',
+    name: 'address',
+    key: 'address',
+  },
+  {
+    title: '技能',
+    label: '技能', // th表头
+    dataIndex: 'skill',
+    name: 'skill',
+    key: 'skill',
+  },
+  {
+    title: '兴趣爱好',
+    label: '兴趣爱好', // th表头
+    dataIndex: 'favorite',
+    name: 'favorite',
+    key: 'favorite',
+  },
+  {
+    title: '操作',
+    label: '操作', // th表头
+    name: 'action',
+    type: 'link',
+    key: 'action',
+    slots: { customRender: 'action' },
+  },
+]
+
+  const dataSource = [
+    {
+      key: "1",
+      name: "张三",
+      age: 32,
+      address: "北京市朝阳区",
+      skill: "javascript,node.js,python,java,html",
+      favorite: "running,reading,video game",
+    },
+    {
+      key: "2",
+      name: "李四",
+      age: 42,
+      address: "上海市浦东新区",
+      skill: "javascript,node.js,python,java",
+      favorite: "running,reading,video game",
+    },
+  ];
+</script>
 
   </template>
+  
 </Demo>
 
-## API
-
-### 属性
-
-| 参数       | 说明                                           | 类型                                   | 默认值  |
-| ---------- | ---------------------------------------------- | -------------------------------------- | ------- |
-| columns    | 表格列的配置描述                               | `array`                                | `[]`    |
-| dataSource | 数据数组                                       | `array`                                | `[]`    |
-| loading    | 页面是否加载中                                 | `boolean`                              | `false` |
-| pagination | 分页器，参考 ant-design-vue 的 Pagination 文档 | `object`                               | `{}`    |
-| rowKey     | 表格行 key 的取值                              | `string` \| `function(record): string` | `key`   |
-
-基于 ant-design-vue 的 Table 组件进行二次封装，提供更符合业务需求的表格组件。
-
-## 基础用法
-
-基础的表格用法。
-
-```vue
-<template>
-  <k-table :columns="columns" :data-source="dataSource" />
-</template>
-
-<script setup>
-  import { ref } from "vue";
-
-  const columns = [
-    {
-      title: "姓名",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "年龄",
-      dataIndex: "age",
-      key: "age",
-    },
-    {
-      title: "地址",
-      dataIndex: "address",
-      key: "address",
-    },
-  ];
-
-  const dataSource = [
-    {
-      key: "1",
-      name: "张三",
-      age: 32,
-      address: "北京市朝阳区",
-    },
-    {
-      key: "2",
-      name: "李四",
-      age: 42,
-      address: "上海市浦东新区",
-    },
-  ];
-</script>
-```
 
 ## 带标题和操作栏
 
@@ -137,7 +169,7 @@
     </template>
   </k-table>
 </template>
-```
+``` 
 
 ## 自定义列渲染
 
@@ -176,7 +208,7 @@
     message.info(`删除: ${record.name}`);
   };
 </script>
-```
+``` 
 
 ## 分页设置
 
@@ -210,7 +242,7 @@
     console.log("页码变化:", page, pageSize);
   };
 </script>
-```
+``` 
 
 ## 加载状态
 
@@ -235,7 +267,7 @@
     loading.value = !loading.value;
   };
 </script>
-```
+``` 
 
 ## API
 

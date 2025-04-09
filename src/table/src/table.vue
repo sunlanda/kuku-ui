@@ -334,7 +334,7 @@
       // 打开列设置对话框
       const openColumnsSetting = () => {
         columnsSettingVisible.value = true;
-        console.log("🚀 ~ openColumnsSetting ~ columnsSettingVisible:", columnsSettingVisible.value)
+        console.log("🚀 ~ openColumnsSetting ~ columnsSettingVisible:", columnsSettingVisible.value,originalKColumns.value)
       };
 
       // 列设置确认

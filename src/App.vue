@@ -108,17 +108,14 @@
           </k-charts>
         </div>
       </section>
-
-   
-
     </div>
   </a-config-provider>
 </template>
 
 <script setup lang="ts">
-import { ConfigProvider, Switch as ASwitch } from 'ant-design-vue'
+import { Switch as ASwitch } from 'ant-design-vue'
 import { theme } from 'ant-design-vue'
-import { ref, reactive, computed } from 'vue'
+import { ref,  computed } from 'vue'
 import {PIE,LINE} from "../config/mock"
 
 const { defaultAlgorithm, darkAlgorithm } = theme
@@ -227,7 +224,7 @@ const currentTheme = computed(() => ({
 }))
 
 // 切换主题
-const toggleTheme = (checked: boolean) => {
+const toggleTheme = (checked: Boolean|String) => {
   isDarkMode.value = checked
 }
 // loading
@@ -236,8 +233,8 @@ const isLoading = true
 const chartOption = LINE
 // pie option
 const pieChartOption = PIE
-const handleChartClick = (e)=>{
-  console.log("🚀 ~ e:", e)
+const handleChartClick = ()=>{
+  console.log("🚀 ~ e:",)
 }
 </script>
 
